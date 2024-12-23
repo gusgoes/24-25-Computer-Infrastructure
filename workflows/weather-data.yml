@@ -1,0 +1,31 @@
+#This sets the name of the workflow to "Weather Data Workflow".
+
+name: Weather Data Workflow 
+
+#The on section specifies the events that trigger the workflow.
+#schedule: This uses a cron expression to schedule the workflow to run at 10:00 AM UTC every day.
+#workflow_dispatch: This allows the workflow to be manually triggered from the GitHub Actions tab in the repository.
+
+on:
+  schedule:
+    - cron: '0 10 * * *'
+  workflow_dispatch:
+
+#The jobs section defines a job named fetch-weather-data.
+#runs-on: ubuntu-latest: This specifies that the job should run on the latest version of an Ubuntu runner.
+#steps: This defines the steps to be executed in the job.
+#The first step is named "Checkout repository" and uses the actions/checkout@v2 action to check out the repository's code.
+#The second step is named "Fetch weather data".
+#run: This specifies a shell command to be executed. The echo command is a placeholder, and you would replace the comment with the actual script or command to fetch weather data.
+
+jobs:
+  fetch-weather-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Fetch weather data
+        run: |
+          echo "Fetching weather data..."
+          # Add your script or command to fetch weather data here
